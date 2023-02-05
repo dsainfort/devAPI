@@ -1,5 +1,5 @@
 const path = require('path');
-const ErrorResponse = require('../utils/errorReponse');
+const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const geocoder = require('../utils/geocoder');
 const Bootcamp = require('../models/Bootcamp');
@@ -108,7 +108,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
 		return next(new ErrorResponse(`Please upload a file`, 400));
 	}
 
-	const file = req.files.undefined;
+	const file = req.files.File;
 
 	// Check if the file is a photo
 	if (!file.mimetype.startsWith('image')) {
