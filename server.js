@@ -1,9 +1,10 @@
+const dotenv = require('dotenv').config({ path: './config/config.env' });
 const path = require('path');
 const express = require('express');
-const dotenv = require('dotenv').config({ path: './config/config.env' });
 const morgan = require('morgan');
 const colors = require('colors');
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
@@ -21,6 +22,9 @@ const app = express();
 // Body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Cookie parser
+app.use(cookieParser());
 
 // Init middleware logs for devs
 if ((process.env.NODE_ENV = 'development')) {
