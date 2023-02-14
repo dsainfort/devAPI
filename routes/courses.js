@@ -10,11 +10,11 @@ const {
 // Import Course model
 const Course = require('../models/Course');
 
-// Advanced filtering middleware
-const advancedResults = require('../middleware/advancedResults');
-
 // @description: Initialize routes
 const router = express.Router({ mergeParams: true });
+
+// Advanced filtering middleware
+const advancedResults = require('../middleware/advancedResults');
 
 // Protect middleware
 const { protect, authorize } = require('../middleware/auth');
