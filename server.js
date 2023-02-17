@@ -13,6 +13,7 @@ const bootcamp = require('./routes/bootcamps');
 const course = require('./routes/courses');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
+const reviews = require('./routes/reviews');
 
 // Connect to database
 connectDB();
@@ -43,6 +44,7 @@ app.use('/api/v1/bootcamps', bootcamp);
 app.use('/api/v1/courses', course);
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/users', users);
+app.use('/api/v1/reviews', reviews);
 
 // Custom handle error
 app.use(errorHandler);
