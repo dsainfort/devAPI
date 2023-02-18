@@ -53,7 +53,7 @@ const deleteData = async () => {
 		await Course.deleteMany();
 		await User.deleteMany();
 		await Review.deleteMany();
-		console.log('Data destroyed'.bgRed.inverse);
+		console.log('Data destroyed'.bgRed);
 		process.exit();
 	} catch (err) {
 		console.log(err);
