@@ -9,4 +9,5 @@ const options = {
 
 const geocoder = NodeGeocoder(options);
 
+// Make it accesible to dependencies
 module.exports = geocoder;

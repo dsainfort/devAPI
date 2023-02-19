@@ -1,19 +1,20 @@
 const advancedResults = (model, populate) => async (req, res, next) => {
 	let query;
-	// Copy req.query
+	// Copy req.query to reqQuery with spread parameter
 	const reqQuery = { ...req.query };
 
-	// Remove fields
+	// Remove fields acting like query selectors
 	const removeFields = ['select', 'sort', 'page', 'limit'];
 
 	// Loop over remove fields and delete them from reqQuery
 	removeFields.forEach((param) => delete reqQuery[param]);
 
-	console.log(reqQuery);
+	// console.log(reqQuery);
+
 	// Create query string
 	let queryStr = JSON.stringify(reqQuery);
 
-	// Create operator (gt, gte, etc...)
+	// Create operator with regex (gt, gte, etc...)
 	queryStr = queryStr.replace(
 		/\b(gt|gte|lt|lte|in)\b/g,
 		(match) => `$${match}`
